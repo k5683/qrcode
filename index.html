@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #select{
+            display: block;
+            width: 200px;
+            height: 10vh;
+            margin-bottom: 10vh;
+            margin: auto;
+            background-color: black;
+            color: white;
+        }
+        #tarea{
+            display: block;
+            width: 200px;
+            margin-bottom: 2vh;
+            height: 10vh;
+            margin: auto;
+            background-color: black;
+            color: white;
+        }
+        #btn{
+            display: block;
+            width: 200px;
+            height: 10vh;
+            margin-top: 5%;
+            margin: auto;
+            background-color: red;
+            color: white;
+        }
+        #img{
+            display: block;
+            margin-top: 5%;
+            margin: auto;
+            margin-bottom: 2vh;
+
+        }
+        h1{width: 100%;
+            display: block;
+            color: white;
+            margin: auto;
+        } */
+
+        .heading{
+            position: absolute;
+            top: 0px;
+            left: 500px;
+            /* border: 10px solid white; */
+            color: white;
+
+        }
+
+        .image{
+            padding: 1%;
+            position: absolute;
+            top: 70px;
+            left: 510px;
+            color: white;
+            border: 1px solid white;
+            min-width: 300px;
+            min-height: 300px;
+            
+        }
+        p{
+            position: absolute;
+            top:0px;
+            left: 15px;
+        }
+
+        .select{
+            position: absolute;
+            top: 420px;
+            left: 510px;
+
+        }
+
+        .textarea{
+            position: absolute;
+            top: 470px;
+            left: 510px;
+        }
+
+        .button{
+            position: absolute;
+            top: 520px;
+            left: 510px;
+        }
+        input[type="submit"] {
+            width: 200px;
+            height: 50px;
+            background: red;
+            color: white;
+        }
+        h3{
+            position: absolute;
+            top:570px;
+            left: 510px;
+            color: white;
+        }
+ 
+
+       
+
+
+
+    </style>
+</head>
+<body bgcolor="black">
+    <div class="heading"><h1>Qr Code Generator</h1></div>
+    <div class="image"><p>QR comes here</p>
+    <img id="img" src="" alt=""></div>
+    <div class="select"><select name="" id="select" aria-placeholder="Select-size">
+        <option value="150*150" selected>150*150</option>
+        <option value="200*200">200*200</option>
+        <option value="250*250">250*250</option>
+        <option value="300*300">300*300</option>
+        <option value="350*350">350*350</option>
+    </select></div>
+    <div class="textarea"><textarea placeholder="Enter Your Text" id="tarea" cols="24" rows="2"></textarea></div>
+    <div class="button"><input type="submit" name="submit" id="btn" value="Generate" onclick="showIt()"></div>
+    <H3>Developed by Kunal Tyagi </H3>
+    <script>
+        function showIt(){
+            var gapi= "https://chart.googleapis.com/chart?cht=qr&chs=";
+            var myImg= document.getElementById("img")
+            var txt=document.getElementById("tarea").value;
+            var size = document.getElementById("select").value;
+             if (txt!="" && size=="150*150")
+             {
+                myImg.src = gapi+"150x150"+"&chl="+txt;
+
+             }
+
+             else if (txt!="" &&  size=="200*200"){
+
+                myImg.src = gapi+"200x200"+"&chl="+txt;
+             }
+             else if (txt!="" &&  size=="250*250"){
+
+                myImg.src = gapi+"250x250"+"&chl="+txt;
+             }
+             else if (txt!="" &&  size=="300*300"){
+
+                myImg.src = gapi+"300x300"+"&chl="+txt;
+             }
+             else if (txt!="" &&  size=="350*350"){
+
+                myImg.src = gapi+"300x300"+"&chl="+txt;
+             }
+             else{
+                 alert("Please Enter the data to embeded in QRCode")
+             }
+        }
+    
+    </script>
+</body>
+</html>
